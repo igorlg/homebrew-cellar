@@ -7,9 +7,18 @@ class Capstan < Formula
   depends_on 'go' => :build
 
   def install
-    system 'go get -d -v github.com/cloudius-systems/capstan'
-    system 'go build -a -ldflags "-X main.VERSION=\'v0.4.0\' -w -s" -tags netgo -v -o bin/capstan'
-    bin.install 'bin/capstan'
+    ENV['GOPATH'] = buildpath/'src'
+
+    (buildpath/'src/github.com/cloudius-systems/capstan').install buildpath.children
+
+    cd 'src/github.com/cloudius-systems/capstan' do
+      system 'go', 'get', '-d', '-v', '.'
+      system 'go', 'build', '-a', '-v', '-tags', 'netgo', '-o', 'bin/capstan',
+                                 '-ldflags', '"-X main.VERSION=v0.4.0 -w -s"',
+                                 'capstan.go'
+      bin.install 'bin/capstan'
+      prefix.install_metafiles
+    end
   end
 
   test do
