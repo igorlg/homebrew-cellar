@@ -5,7 +5,7 @@ class Capstan < Formula
   sha256 'ad7b86509f503926721c5564881d9f238e488e6354ab1dfa4ef30d1fa12080d2'
 
   bottle do
-    root_url ''
+    root_url 'https://github.com/igorlg/homebrew-cellar/releases/download/v0.0.2/'
     cellar :any_skip_relocation
     sha256 "f5e04c954626b784354bf1b3add30250ea4c121b2ea2609689f31d12baa5a476" => :mojave
   end
