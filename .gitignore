@@ -2,3 +2,9 @@
 .idea/
 **/.idea/
 
+# Vim
+**/*.swp
+
+# MacOS
+**/.DS_Store
+
