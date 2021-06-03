@@ -9,7 +9,7 @@ $(ZIP_FILE):
 	zip $@ install.sh $(PROTON_FILE) $(WAITER_FILE)
 	unzip -l $@
 
-cask:
+cask: $(ZIP_FILE)
 	$(eval SHASUM := $(shell sha256sum $(ZIP_FILE) | awk '{print $$1}'))
 	@echo "Old SUM:"
 	@grep sha256 $(CASK_FILE) | awk '{print $$2}' | tr -d '"'
