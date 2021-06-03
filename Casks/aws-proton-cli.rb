@@ -1,6 +1,6 @@
 cask "aws-proton-cli" do
   version "2020-07-20"
-  sha256 "356cb52234f54eb017ba99a59eaa74fdfb6b6879a89c36ec2e185413d8b3f362"
+  sha256 "cacefe2b23629bde39e89664b10a7d72cb5298edfa05700ffa49438040795fa2"
 
   url "https://github.com/igorlg/homebrew-cellar/blob/master/aws-proton/aws-proton-preview.zip?raw=true"
   name "aws-proton-cli"
