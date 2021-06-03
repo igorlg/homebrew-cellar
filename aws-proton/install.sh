@@ -5,7 +5,11 @@
 #
 
 scriptdir=`dirname "$0"`
+modeldir="${HOME}/.aws/models/proton-review/2020-07-20"
 
-aws configure add-model --service-model "file://${scriptdir}/proton-2020-07-20.normal.json" --service-name proton-preview
-cp $scriptdir/waiters2.json $HOME/.aws/models/proton-preview/2020-07-20/waiters2.json
+aws configure add-model \
+	--service-model "file://${scriptdir}/proton-2020-07-20.normal.json" \
+	--service-name proton-preview
+
+cp $scriptdir/waiters2.json $modeldir/waiters2.json
 
