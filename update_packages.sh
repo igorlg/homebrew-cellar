@@ -1,14 +1,23 @@
 #!/usr/bin/env bash
 
 # -- Formulas
-echo "Updating @mhlabs/cwlogs-cli (Formula/cwlogs-cli.rb)"
-noob @mhlabs/cwlogs-cli       | tee Formula/cwlogs-cli.rb
-echo "Updating @mhlabs/evb-cli (Formula/evb-cli.rb)"
-noob @mhlabs/evb-cli          | tee Formula/evb-cli.rb
-echo "Updating @mhlabs/iam-policies-cli (Formula/iam-policies-cli.rb)"
-noob @mhlabs/iam-policies-cli | tee Formula/iam-policies-cli.rb
-echo "Updating sam-patterns-cli (Formula/sam-patterns-cli.rb)"
-noob sam-patterns-cli         | tee Formula/sam-patterns-cli.rb
+declare -a npm_formulas
+npm_formulas[0]="@mhlabs/cwlogs-cli#cwlogs#Formula/cwlogs-cli.rb"
+npm_formulas[1]="@mhlabs/evb-cli#evb#Formula/evb-cli.rb"
+npm_formulas[2]="@mhlabs/iam-policies-cli#iam-pol#Formula/iam-policies-cli.rb"
+npm_formulas[3]="sam-patterns-cli#sam-patterns#Formula/sam-patterns-cli.rb"
+
+for i in "${npm_formulas[@]}"; do
+  npmpkg="$(echo $i  | cut -d '#' -f 1)"
+  cmd="$(echo $i     | cut -d '#' -f 2)"
+  formula="$(echo $i | cut -d '#' -f 3)"
+
+  echo "Updating ${npmpkg} (${formula}). Test cmd: ${cmd}"
+  noob $npmpkg \
+  | sed "s/raise \"Test.*/system \"#{bin}\/${cmd}\", \"-v\"/g" \
+  | tee $formula
+done
+
 
 echo "Getting latest version of aws-session-manager-plugin"
 ssm_plugin_latest="$(gh release list -R aws/session-manager-plugin -L 1 | awk '{ print $10 }' | tr -d '()')"
@@ -24,19 +33,6 @@ ssm_sha_latest="$(sha256sum ${ssm_plugin_latest}.zip | awk '{ print $1 }')"
 ssm_sha_current="$(grep '  sha256' Formula/aws-session-manager-plugin.rb | awk '{ print $2 }' | tr -d '\"')"
 rm "${ssm_plugin_latest}.zip"
 
-if [ -z "$GITHUB_TOKEN" ]; then
-  # Runnin on Mac
-  echo "Updating Formula/aws-session-manager-plugin.rb using MacOS SED"
-  sed -i '' "s/${ssm_sha_current}/${ssm_sha_latest}/g" Formula/aws-session-manager-plugin.rb
-  sed -i '' "s/${ssm_plugin_current}/${ssm_plugin_latest}/g" Formula/aws-session-manager-plugin.rb
-else
-  echo "Updating Formula/aws-session-manager-plugin.rb using Linux SED"
-  sed -i "s/${ssm_sha_current}/${ssm_sha_latest}/g" Formula/aws-session-manager-plugin.rb
-  sed -i "s/${ssm_plugin_current}/${ssm_plugin_latest}/g" Formula/aws-session-manager-plugin.rb
-fi
-# echo "ssm_plugin_latest:  ${ssm_plugin_latest}"
-# echo "ssm_plugin_current: ${ssm_plugin_current}"
-# echo "ssm_sha_current:    ${ssm_sha_current}"
-# echo "ssm_sha_latest:     ${ssm_sha_latest}"
-
-# -- Casks
+echo "Updating Formula/aws-session-manager-plugin.rb using MacOS SED"
+$sed "s/${ssm_sha_current}/${ssm_sha_latest}/g" Formula/aws-session-manager-plugin.rb
+$sed "s/${ssm_plugin_current}/${ssm_plugin_latest}/g" Formula/aws-session-manager-plugin.rb
