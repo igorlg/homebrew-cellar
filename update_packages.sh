@@ -33,6 +33,14 @@ ssm_sha_latest="$(sha256sum ${ssm_plugin_latest}.zip | awk '{ print $1 }')"
 ssm_sha_current="$(grep '  sha256' Formula/aws-session-manager-plugin.rb | awk '{ print $2 }' | tr -d '\"')"
 rm "${ssm_plugin_latest}.zip"
 
-echo "Updating Formula/aws-session-manager-plugin.rb using MacOS SED"
-$sed "s/${ssm_sha_current}/${ssm_sha_latest}/g" Formula/aws-session-manager-plugin.rb
-$sed "s/${ssm_plugin_current}/${ssm_plugin_latest}/g" Formula/aws-session-manager-plugin.rb
+formula="Formula/aws-session-manager-plugin.rb"
+
+if [ -z "$GITHUB_TOKEN" ]; then
+  echo "Updating $formula using MacOS SED"
+  sed -i '' "s/${ssm_sha_current}/${ssm_sha_latest}/g" $formula
+  sed -i '' "s/${ssm_plugin_current}/${ssm_plugin_latest}/g" $formula
+else
+  echo "Updating $formula using Linux SED"
+  sed -i "s/${ssm_sha_current}/${ssm_sha_latest}/g" $formula
+  sed -i "s/${ssm_plugin_current}/${ssm_plugin_latest}/g" $formula
+fi
