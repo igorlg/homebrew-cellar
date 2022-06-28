@@ -10,7 +10,7 @@ class AwsSessionManagerPlugin < Formula
 
   url "https://s3.amazonaws.com/session-manager-downloads/plugin/1.2.339.0/mac/sessionmanager-bundle.zip"
   version "1.2.339.0"
-  sha256 "f22b549ae713f13654664dc02b6d70c5e02264737fa69c861d15cd33c1dcea13"
+  sha256 "a262a392469aad6d78b44eecba58f980a54fe08f13038a09c4c1d20a4a3e8272"
 
   def install
     bin.install "bin/session-manager-plugin"
