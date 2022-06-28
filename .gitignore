@@ -10,3 +10,9 @@
 
 # VS Code
 **/.vscode/
+
+# Packages
+**/*.zip
+**/*.tar*
+**/*.*gz
+**/*.*bz2
