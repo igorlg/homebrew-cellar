@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 # -- Formulas
 echo "Updating @mhlabs/cwlogs-cli (Formula/cwlogs-cli.rb)"
