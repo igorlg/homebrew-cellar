@@ -7,16 +7,16 @@ npm_formulas[1]="@mhlabs/evb-cli#evb#Formula/evb-cli.rb"
 npm_formulas[2]="@mhlabs/iam-policies-cli#iam-pol#Formula/iam-policies-cli.rb"
 npm_formulas[3]="sam-patterns-cli#sam-patterns#Formula/sam-patterns-cli.rb"
 
-# for i in "${npm_formulas[@]}"; do
-#   npmpkg="$(echo $i  | cut -d '#' -f 1)"
-#   cmd="$(echo $i     | cut -d '#' -f 2)"
-#   formula="$(echo $i | cut -d '#' -f 3)"
+for i in "${npm_formulas[@]}"; do
+  npmpkg="$(echo $i  | cut -d '#' -f 1)"
+  cmd="$(echo $i     | cut -d '#' -f 2)"
+  formula="$(echo $i | cut -d '#' -f 3)"
 
-#   echo "Updating ${npmpkg} (${formula}). Test cmd: ${cmd}"
-#   noob $npmpkg \
-#   | sed "s/raise \"Test.*/system \"#{bin}\/${cmd}\", \"-v\"/g" \
-#   | tee $formula
-# done
+  echo "Updating ${npmpkg} (${formula}). Test cmd: ${cmd}"
+  noob $npmpkg \
+  | sed "s/raise \"Test.*/system \"#{bin}\/${cmd}\", \"-v\"/g" \
+  | tee $formula
+done
 
 
 echo "Getting latest version of aws-session-manager-plugin"
