@@ -1,16 +1,19 @@
 require "language/node"
 
-class EvbCli < Formula
-  desc "Pattern generator and debugging tool for Amazon EventBridge"
-  homepage "https://github.com/mhlabs/evb-cli"
-  url "https://github.com/mhlabs/evb-cli/archive/refs/tags/v1.1.39a.zip"
-  sha256 "99d574dcf91102f5836713fafac5d65bcb84bfc56c0e8722a8f18360905b7212"
-  license ""
+class MhlabsEvbCli < Formula
+  desc "A package for building EventBridge/CloudWatch Events patterns"
+  homepage "https://github.com/mhlabs/evb-cli#readme"
+  url "https://registry.npmjs.org/@mhlabs/evb-cli/-/evb-cli-1.1.39.tgz"
+  sha256 "7b397d7d269aead2cf01db4e1b7549f26ef3dbb231da3b87784e5868704ed2ff"
+  license "ISC"
+
+  livecheck do
+    url :stable
+  end
 
   depends_on "node"
 
   def install
-    # ENV.deparallelize  # if your formula fails when building in parallel
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
