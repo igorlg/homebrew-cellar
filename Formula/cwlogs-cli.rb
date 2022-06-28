@@ -1,6 +1,6 @@
 require "language/node"
 
-class CwlogsCli < Formula
+class MhlabsCwlogsCli < Formula
   desc "CLI tool to quickly set up cross log group search in CloudWatch Logs Insights based on prefix, tags and/or RegEx pattern"
   homepage "https://github.com/mhlabs/cwlogs-cli#readme"
   url "https://registry.npmjs.org/@mhlabs/cwlogs-cli/-/cwlogs-cli-1.0.2.tgz"
