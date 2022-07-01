@@ -1,6 +1,6 @@
 require "language/node"
 
-class MhlabsEvbCli < Formula
+class EvbCli < Formula
   desc "A package for building EventBridge/CloudWatch Events patterns"
   homepage "https://github.com/mhlabs/evb-cli#readme"
   url "https://registry.npmjs.org/@mhlabs/evb-cli/-/evb-cli-1.1.40.tgz"

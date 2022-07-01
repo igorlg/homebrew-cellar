@@ -16,6 +16,7 @@ for i in "${npm_formulas[@]}"; do
   echo "Updating ${npmpkg} (${formula}). Test cmd: ${cmd}"
   noob $npmpkg \
   | sed "s/raise \"Test.*/system \"#{bin}\/${cmd}\", \"-v\"/g" \
+  | sed "s/class Mhlabs/class /g" \
   | tee $formula
 done
 

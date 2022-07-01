@@ -1,6 +1,6 @@
 require "language/node"
 
-class MhlabsIamPoliciesCli < Formula
+class IamPoliciesCli < Formula
   desc "A CLI tool for building simple to complex IAM policies"
   homepage "https://github.com/mhlabs/iam-policies-cli#readme"
   url "https://registry.npmjs.org/@mhlabs/iam-policies-cli/-/iam-policies-cli-1.0.4.tgz"
