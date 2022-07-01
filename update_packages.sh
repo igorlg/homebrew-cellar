@@ -6,6 +6,7 @@ npm_formulas[0]="@mhlabs/cwlogs-cli#cwlogs#Formula/cwlogs-cli.rb"
 npm_formulas[1]="@mhlabs/evb-cli#evb#Formula/evb-cli.rb"
 npm_formulas[2]="@mhlabs/iam-policies-cli#iam-pol#Formula/iam-policies-cli.rb"
 npm_formulas[3]="sam-patterns-cli#sam-patterns#Formula/sam-patterns-cli.rb"
+npm_formulas[4]="artillery#artillery#Formula/artillery.rb"
 
 for i in "${npm_formulas[@]}"; do
   npmpkg="$(echo $i  | cut -d '#' -f 1)"

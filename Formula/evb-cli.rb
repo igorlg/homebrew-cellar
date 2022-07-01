@@ -3,8 +3,8 @@ require "language/node"
 class MhlabsEvbCli < Formula
   desc "A package for building EventBridge/CloudWatch Events patterns"
   homepage "https://github.com/mhlabs/evb-cli#readme"
-  url "https://registry.npmjs.org/@mhlabs/evb-cli/-/evb-cli-1.1.39.tgz"
-  sha256 "7b397d7d269aead2cf01db4e1b7549f26ef3dbb231da3b87784e5868704ed2ff"
+  url "https://registry.npmjs.org/@mhlabs/evb-cli/-/evb-cli-1.1.40.tgz"
+  sha256 "d0b116c01fc23cf3d764cd640f28729cd3d2f4d3243a970e20f82b8d0441fa2b"
   license "ISC"
 
   livecheck do
