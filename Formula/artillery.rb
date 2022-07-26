@@ -3,8 +3,8 @@ require "language/node"
 class Artillery < Formula
   desc "Modern performance testing toolkit for DevOps and SRE"
   homepage "https://github.com/artilleryio/artillery#readme"
-  url "https://registry.npmjs.org/artillery/-/artillery-2.0.0-21.tgz"
-  sha256 "f2d1a52ba246baf5a43a99bb4a0d03d314257618eafc8e12395a4f39e6b47574"
+  url "https://registry.npmjs.org/artillery/-/artillery-2.0.0-22.tgz"
+  sha256 "3af86ce2c6cec47f30b5574d77902b7bf6e0c3eaf8a5cdcd81f34bc15bd56cd4"
   license "MPL-2.0"
 
   livecheck do
