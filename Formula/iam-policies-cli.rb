@@ -3,8 +3,8 @@ require "language/node"
 class IamPoliciesCli < Formula
   desc "A CLI tool for building simple to complex IAM policies"
   homepage "https://github.com/mhlabs/iam-policies-cli#readme"
-  url "https://registry.npmjs.org/@mhlabs/iam-policies-cli/-/iam-policies-cli-1.0.5.tgz"
-  sha256 "727800a47f176e4c7dd6c9c024dc2b9de30064a647bda4ac8694589f35e6ccfc"
+  url "https://registry.npmjs.org/@mhlabs/iam-policies-cli/-/iam-policies-cli-1.0.7.tgz"
+  sha256 "03508a05a81fd6116a1dd7fa1b3140b2ab1ddf04e8be0f87620ab37e7b957ff1"
   license "ISC"
 
   livecheck do
