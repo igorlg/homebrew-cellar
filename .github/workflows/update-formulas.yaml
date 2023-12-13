@@ -1,6 +1,6 @@
 name: Update Homebrew Formulas
 
-on: [push]
+on: [push, workflow_dispatch]
 
 jobs:
   update_packages:
