@@ -3,8 +3,8 @@ require "language/node"
 class SampCli < Formula
   desc "CLI tool for extended productivity with AWS Serverless Application Model (SAM)"
   homepage "https://github.com/ljacobsson/samp-cli#readme"
-  url "https://registry.npmjs.org/samp-cli/-/samp-cli-1.0.67.tgz"
-  sha256 "afc8ad34c169f5a2b645a7bc3daa396cda64e128a7804fadbeaf711b0b0ed0b1"
+  url "https://registry.npmjs.org/samp-cli/-/samp-cli-1.0.70.tgz"
+  sha256 "f488fd499e9444f1915874a15439f177e043222206bbd8ab4a7498516987d7d7"
   license "ISC"
 
   livecheck do
