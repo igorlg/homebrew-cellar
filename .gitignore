@@ -19,4 +19,7 @@
 
 # Other
 tmp/
+.claude/
+CLAUDE.md
+.envrc
 

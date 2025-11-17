@@ -13,6 +13,8 @@ class McpLanguageServer < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GOPRIVATE"] = "*"
+    ENV["GOPROXY"] = "direct"
     system "go", "build", "-o", "mcp-language-server"
     bin.install "mcp-language-server"
   end

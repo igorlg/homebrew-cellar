@@ -1,29 +1,87 @@
-# Igor's Homebrew repo
+# Igor's Homebrew Tap
 
-This repository contains formulas and Casks for Homebrew, for things that haven't gone upstream yet, or I just wanted to fork.
+A custom Homebrew tap containing formulas for tools that haven't gone upstream yet, or personal forks with modifications.
 
-Contributions are welcome!
+## Installation
 
-# Installation
-
+```bash
+brew tap igorlg/cellar
+brew install igorlg/cellar/<formula>
 ```
-$ brew install igorlg/cellar/<formula>
+
+Or in a single command:
+
+```bash
+brew install igorlg/cellar/<formula>
 ```
 
-See __Contents__ below for available formulas
+## Available Formulas
 
-# Contents
+### AWS & Cloud Tools
 
-## Capstan
+#### cwlogs-cli
+CLI tool to quickly set up cross log group search in CloudWatch Logs Insights based on prefix, tags, and/or RegEx patterns.
 
-Formula: [capstan.rb](https://github.com/igorlg/homebrew-cellar/blob/bottles/Formula/capstan.rb)
+- **Source**: [@mhlabs/cwlogs-cli](https://github.com/mhlabs/cwlogs-cli)
+- **Install**: `brew install igorlg/cellar/cwlogs-cli`
 
-Install OSv's image manager [Capstan](https://github.com/cloudius-systems/capstan/blob/master/README.md). Capstan is written in Go, so the formula depends on the Go compiler and downloads all dependencies usign `go get -d`.
-Binary bottle is available [here](https://github.com/igorlg/homebrew-cellar/releases/tag/v0.0.2).
+#### evb-cli
+A package for building EventBridge patterns.
 
-## AWS SessionManager Plugin
+- **Source**: [@mhlabs/evb-cli](https://github.com/mhlabs/evb-cli)
+- **Install**: `brew install igorlg/cellar/evb-cli`
 
-Formula: [aws-session-manager-plugin.rb](https://github.com/igorlg/homebrew-cellar/blob/bottles/Formula/aws-session-manager-plugin.rb)
+#### iam-policies-cli
+CLI tool for working with AWS IAM policies.
 
-This formula was [forked](https://github.com/dkanejs/homebrew-aws-session-manager-plugin) from [David Kane](https://github.com/dkanejs)'s awesome formula. My only change was to remove the dependency to the Homebrew `awscli` formula,
-so that the plugin can be installed via Homebrew, even if the [AWS CLI](https://aws.amazon.com/cli/) is managed by other tool, such as Python's `pip`.
+- **Source**: [@mhlabs/iam-policies-cli](https://github.com/mhlabs/iam-policies-cli)
+- **Install**: `brew install igorlg/cellar/iam-policies-cli`
+
+#### codebuild-local
+Script to run AWS CodeBuild locally using Docker.
+
+- **Source**: [aws/aws-codebuild-docker-images](https://github.com/aws/aws-codebuild-docker-images)
+- **Install**: `brew install igorlg/cellar/codebuild-local`
+- **Requirement**: Docker must be installed
+
+### Serverless & SAM
+
+#### samp-cli
+CLI tool for AWS Serverless Application Model (SAM) patterns.
+
+- **Source**: [samp-cli](https://github.com/mhlabs/samp-cli)
+- **Install**: `brew install igorlg/cellar/samp-cli`
+
+### Development Tools
+
+#### mcp-language-server
+MCP server that exposes language server capabilities to LLMs.
+
+- **Source**: [isaacphi/mcp-language-server](https://github.com/isaacphi/mcp-language-server)
+- **Install**: `brew install igorlg/cellar/mcp-language-server`
+
+#### git-open
+Open GitHub/GitLab/CodeCommit page for a git repository from the command line. Fork with support for branches and multiple platforms.
+
+- **Source**: [igorlg/git-open](https://github.com/igorlg/git-open) (fork)
+- **Install**: `brew install igorlg/cellar/git-open`
+- **Usage**: Run `git-open` from any git repository
+
+## Automated Updates
+
+This tap uses GitHub Actions to automatically check for and update formulas when new versions are released upstream. Updates are created as pull requests for review.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit issues or pull requests.
+
+## Maintenance
+
+Formulas are automatically kept up-to-date via GitHub Actions workflows that:
+- Check for new NPM package versions
+- Check for new GitHub releases
+- Generate pull requests with updates
+
+## License
+
+See individual formula licenses. This tap itself is provided as-is for community use.

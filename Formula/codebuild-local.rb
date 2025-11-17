@@ -11,7 +11,8 @@ end
 class CodebuildLocal < Formula
   desc "Script to run AWS CodeBuild locally using Docker"
   homepage "https://github.com/aws/aws-codebuild-docker-images"
-  url "https://github.com/aws/aws-codebuild-docker-images.git", using: :git, tag: '21.04.23'
+  url "https://github.com/aws/aws-codebuild-docker-images/archive/refs/tags/24.10.02.tar.gz"
+  sha256 "52d4bff42e5488dd0c5a6746b4435123a2f3063f2b1893ad0b4631d9d5530e3b"
 
   depends_on DockerRequirement
 

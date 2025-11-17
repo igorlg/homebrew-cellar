@@ -13,10 +13,27 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install homebrew-npm-noob
-      - name: Update Packages
+      - name: Update NPM Packages
         run: |
           ./update_packages.sh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update GitHub-based Formulas
+        run: |
+          python3 update_github_formulas.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
+        with:
+          branch: formula-updates
+          delete-branch: true
+          commit-message: "chore: update formulas to latest versions"
+          title: "Update Homebrew Formulas"
+          body: |
+            Automated formula updates from upstream sources.
+
+            This PR updates formulas to their latest available versions.
+
+            Please review the changes before merging.
+          labels: dependencies
